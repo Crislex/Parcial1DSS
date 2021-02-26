@@ -1,4 +1,5 @@
 <?php 
+  //Verifica que ningun valor este vacio
   if(!empty($_POST['num1']) && !empty($_POST['num2']) && !empty($_POST['num3']) && !empty($_POST['num4']) && !empty($_POST['num5']) && !empty($_POST['num6']) && !empty($_POST['num7']) && !empty($_POST['num8']) && !empty($_POST['num9']) && !empty($_POST['num10']) && !empty($_POST['num11']) && !empty($_POST['num12']) ){
 ?>
 
@@ -15,11 +16,12 @@
 <body>
 <div class="card text-center" style="width: 18rem; margin-left: 38%; margin-top: 5%;">
         <div class="card-header">
-            Conversor a Binario
+            Listado de Números
         </div>
         <div class="card-body">
                 <div class="mb-3">
                   <?php
+                  //Asignacion de variables
                   $cont = 0;
                   $pos = 0;
                   $porcentaje = 100 / 12;
@@ -38,10 +40,12 @@
                   $numeros = array($num1,$num2,$num3,$num4,$num5,$num6,$num7,$num8,$num9,$num10,$num11,$num12);
                   $numdes = array();
                   $array_count = count($numeros);
+                  //comprueba los numeros pares
                   for($i = 0; $i < $array_count ; $i++){
                     if($numeros[$i] % 2 == 0){
                       $cont++;
                     }
+                    //comprueba los numeros positivos
                     if($numeros[$i] > 0){
                       $numdes[$pos] = $numeros[$i];
                       $pos++;
@@ -49,6 +53,7 @@
                   }
                   echo '<div class="alert alert-primary" role="alert">Porcentaje de números pares: '.round($cont * $porcentaje, 2).' %</div>';
                   echo '<div class="alert alert-primary" role="alert">Números positivos ordenados de forma descendente</div>';
+                  //Ordena el arreglo de forma descendente
                   rsort($numdes);
                   foreach($numdes as $k=>$v){
                     echo '<p>'.$v.'</p>';
