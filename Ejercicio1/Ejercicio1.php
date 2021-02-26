@@ -48,10 +48,16 @@
                     }
                   }
                   echo '<div class="alert alert-primary" role="alert">Porcentaje de números pares: '.round($cont * $porcentaje, 2).' %</div>';
+                  echo '<div class="alert alert-primary" role="alert">Números positivos ordenados de forma descendente</div>';
+                  rsort($numdes);
+                  foreach($numdes as $k=>$v){
+                    echo '<p>'.$v.'</p>';
+                  }
+                  
                   
                   ?>
                 </div>
-                <a class="btn btn-primary" href="Index.html" role="button">Ir al Menu</a>
+                <a class="btn btn-primary" href="Index.html" role="button">Ir al Menú</a>
         </div>
     </div>
 </body>
